@@ -38,6 +38,10 @@ html {
   --contacts-footer-color: rgba(255, 255, 255, 0.6);
   --text-logo: 000000;
   --button-portfolio: #f5f4fa;
+
+  /* flex-basis */
+  --indent: 30px;
+  --items: 3;
 }
 
 .list {
@@ -86,12 +90,20 @@ img {
   display: block;
 }
 /* header */
+header {
+  border-bottom: 1px solid #ececec;
+  /* outline: 2px solid tomato; */
+}
+
 .logo {
   color: var(--text-logo);
   font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
+}
+
+.logo-link {
   margin-right: 93px;
 }
 span {
@@ -101,9 +113,6 @@ span {
 .header-container {
   display: flex;
   align-items: center;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-block-color: #ececec;
   /* outline: 2px solid tomato; */
 }
 .nav-title {
@@ -120,7 +129,7 @@ span {
   padding-bottom: 32px;
 }
 
-.mail-link {
+.contacts-item {
   margin-right: 50px;
 }
 
@@ -168,14 +177,14 @@ span {
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--primary-white-color);
-}
 
-footer {
-  background: #2f303a;
+  max-width: 696px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-btn {
@@ -211,6 +220,8 @@ footer {
 }
 .about {
   background: #2f303a;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 /* Секция особенности */
@@ -252,9 +263,9 @@ footer {
   display: flex;
   gap: 30px;
 }
-.feature {
+
+.work-item {
   flex-basis: 270px;
-  align-self: flex-start;
 }
 
 /* Секция чем мы занимаемся */
@@ -271,10 +282,7 @@ footer {
   margin-bottom: 50px;
   /* outline: 2px solid tomato; */
 }
-.job-img,
-.team-img {
-  display: block;
-}
+
 .job-list {
   display: flex;
   gap: 30px;
@@ -292,6 +300,11 @@ footer {
   gap: 30px;
 }
 
+.team-item {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+}
 .team-title {
   margin-bottom: 50px;
 }
@@ -312,11 +325,6 @@ footer {
   margin-bottom: 10px;
 }
 
-.team-container {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0px 0px 4px 4px;
-}
 .team-uppertitle {
   font-weight: 400;
   font-size: 16px;
@@ -327,13 +335,18 @@ footer {
 }
 
 /* Секция футер */
-.footer {
-  color: var(--primary-white-color);
-}
-.footer-container {
+footer {
+  background: #2f303a;
   padding-top: 60px;
   padding-bottom: 60px;
 }
+
+.footer {
+  color: var(--primary-white-color);
+  display: block;
+  margin-bottom: 20px;
+}
+
 .footer-item {
   font-style: normal;
   font-weight: 400;
@@ -343,9 +356,6 @@ footer {
   color: var(--primary-white-color);
 }
 
-.logo-container {
-  margin-bottom: 20px;
-}
 .footer-item,
 .footer-mail {
   margin-bottom: 9px;
@@ -355,7 +365,6 @@ footer {
 }
 
 .footer-contacts {
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -384,8 +393,10 @@ button {
   display: flex;
   justify-content: center;
   gap: 8px;
-  padding-bottom: 20px;
-  margin-bottom: 34px;
+  margin-bottom: 50px;
+}
+.item-portfolio {
+  flex-basis: calc(100%-var(--indent) * (var(--items)-1) / var(--items));
 }
 
 .btn {
@@ -437,5 +448,5 @@ button {
 .portfolio {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: var(--indent);
 }
