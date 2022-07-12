@@ -129,12 +129,9 @@ span {
   padding-bottom: 32px;
 }
 
-.contacts-item {
-  margin-right: 50px;
-}
-
 .contacts-list {
   display: flex;
+  gap: 50px;
 }
 
 .nav-list .nav-item {
